@@ -1,0 +1,22 @@
+{% extends 'base_nav.html' %}
+{% load bootstrap3 %}
+
+{% block title %}
+    Edit your page here
+{% endblock %}
+
+{% block content %}
+    <h3>Change information about yourself</h3>
+    <div class="col-sm-3">
+        <form method="post" role="form" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+          {% buttons %}
+            <button type="submit" class="btn btn-primary" id="id_create_btn">
+              {% bootstrap_icon "star" %} Submit
+            </button>
+        {% endbuttons %}
+        </form>
+    </div>
+
+{% endblock %}

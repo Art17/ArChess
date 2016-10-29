@@ -41,6 +41,7 @@ class LoginView(View):
         else:
             return render(request, 'login.html', {'form': form})
 
+
 class SignupView(View):
     def get(self, request):
         form = UserCreationForm()

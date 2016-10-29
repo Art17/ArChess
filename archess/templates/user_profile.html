@@ -1,0 +1,43 @@
+{% extends 'base_nav.html' %}
+
+{% block title %}
+    {% if user == current_user %}
+        your page
+    {% else %}
+        {{ user.username }}'s page
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    {% if current_user == user %}
+        <h3>Your page</h3>
+    {% else %}
+        <h3>{{ user.username }}'s page</h3>
+    {% endif %}
+    <div class="row">
+        <img src="{{ user.profile.avatar.url }}" class = "col-sm-1 img-rounded">
+        <div class = "col-md-offset-1 col-sm-2">
+            <h4>User information</h4>
+            {% if user.profile.firstName  %}
+                <p>First name: {{ user.profile.firstName }}</p>
+            {% else %}
+                <p>First name: Not specified</p>
+            {% endif %}
+            {% if user.profile.lastName %}
+                <p>Last name: {{ user.profile.lastName }}</p>
+            {% else %}
+                <p>Last name: Not specified</p>
+            {% endif %}
+        </div>
+        <div class = "col-sm-2">
+            <h4>Statistics</h4>
+            <p>rating: {{ user.statistics.rating }}</p>
+            <p>games won: {{ user.statistics.games_won }}</p>
+            <p>games_lost: {{ user.statistics.games_lost }}</p>
+            <p>games_drawn: {{ user.statistics.games_drawn }}</p>
+        </div>
+    </div>
+    {% if current_user == user %}
+        <button type = "button" class = "btn btn-default" onclick="location.href='/profile/edit';">Change information about yourself</button>
+    {% endif %}
+{% endblock %}
