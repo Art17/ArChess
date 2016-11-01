@@ -17,9 +17,11 @@
                <li class = "divider"></li>
                 <li><a href = "/logout/">Logout</a></li>
             </ul>
-
-
          </li>
+                {% if user.is_superuser %}
+                    <li><a href = "/admin/">Django admin</a></li>
+                    <li><a href = "/myadmin/">My admin</a></li>
+                {% endif %}
             {% else %}
                 <li><a href = "/signup/">Sign up</a></li>
                <li><a href = "/login/">Login</a></li>

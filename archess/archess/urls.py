@@ -28,7 +28,8 @@ urlpatterns = [
     url(r'^signup/$', views.SignupView.as_view()),
     url(r'^logout/$', views.logout_view),
 
-    url(r'^', include('userprofile.urls'))
+    url(r'^', include('userprofile.urls')),
+    url(r'^', include('task.urls'))
 ]
 
 if settings.DEBUG:
