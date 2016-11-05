@@ -1,8 +1,15 @@
-from django.forms import ModelForm
+from django import forms
 from .models import Task
 
 
-class TaskCreationForm(ModelForm):
+class TaskCreationForm(forms.ModelForm):
+    start_pos = forms.CharField(
+        widget=forms.TextInput(attrs={'readonly': 'readonly'})
+    )
+    question = forms.CharField(
+        widget=forms.Textarea()
+    )
     class Meta:
         model = Task
-        fields = ['title', 'description', 'start_pos', 'answer', 'difficulty']
+        fields = ['title', 'start_pos', 'question', 'difficulty']
+        readonly_fields = ['start_pos']

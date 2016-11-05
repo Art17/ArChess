@@ -3,18 +3,24 @@
  */
 
 var addBoards = function() {
-
-    $('#id_start_pos').after('<div id="board" style="width: 400px"></div>');
+    var $start_pos = $('#id_start_pos');
+    $start_pos.after('<div id="board" style="width: 400px"></div>');
     $('#board').after('<input class="btn btn-primary" type="button" id="startBtn" value="Start" />');
-    $('#startBtn').after('<input class="btn btn-primary" type="button" id="clearBtn" value="Clear" />');
-
+    var $startBtn = $('#startBtn');
+    $startBtn.after('<input class="btn btn-primary" type="button" id="clearBtn" value="Clear" />');
+    $start_pos.val('');
     var board = ChessBoard('board', {
       draggable: true,
       dropOffBoard: 'trash',
-      sparePieces: true
+      sparePieces: true,
+        onChange: function() {
+            console.log('drop');
+            console.log(board.position());
+            $start_pos.val(board.fen())
+        }
     });
 
-    $('#startBtn').on('click', board.start);
+    $startBtn.on('click', board.start);
     $('#clearBtn').on('click', board.clear);
 //--- end example JS ---
 

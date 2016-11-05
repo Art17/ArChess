@@ -1,4 +1,4 @@
-{% extends 'base_nav.html' %}
+{% extends 'base_chess.html' %}
 {% load staticfiles %}
 {% load bootstrap3 %}
 
@@ -6,20 +6,14 @@
     Create task
 {% endblock %}
 
-{% block styles %}
-    <link rel="stylesheet" href="{% static 'chessboardjs-0.3.0/css/chessboard-0.3.0.min.css' %}">
-{% endblock %}
-
 {% block scripts %}
-    <script src="{% static 'json/js/js_json3.min.js' %}"></script>
-    <script src="{% static 'chessboardjs-0.3.0/js/chessboard-0.3.0.js' %}"></script>
-    <script src="{% static 'js/add_boards.js' %}"></script>
+        <script src="{% static 'js/add_boards.js' %}"></script>
 {% endblock %}
 
 {% block content %}
     <h3>Create your game task here</h3>
     <div class="col-sm-3">
-        <form method="post" role="form" enctype="multipart/form-data">
+        <form method="post" role="form" enctype="multipart/form-data" id="id_create_form">
         {% csrf_token %}
         {% bootstrap_form form %}
           {% buttons %}
