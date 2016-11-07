@@ -18,6 +18,7 @@ from django.contrib import admin
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
+from . import rest_views
 
 
 urlpatterns = [
@@ -28,8 +29,11 @@ urlpatterns = [
     url(r'^signup/$', views.SignupView.as_view()),
     url(r'^logout/$', views.logout_view),
 
+    url(r'^api/users/$', rest_views.UsersAPI.as_view()),
+    url(r'^api/users/(\d+)/$', rest_views.UserAPI.as_view()),
+
     url(r'^', include('userprofile.urls')),
-    url(r'^', include('task.urls'))
+    url(r'^', include('task.urls')),
 ]
 
 if settings.DEBUG:
