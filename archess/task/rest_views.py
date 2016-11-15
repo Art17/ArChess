@@ -8,7 +8,7 @@ from rest_framework import status
 
 
 from task.models import Task
-from task.serializers import TaskSerializer
+from task.serializers import TaskPutSerializer, TaskGetSerializer
 
 
 class TasksAPI(views.APIView):
@@ -16,8 +16,16 @@ class TasksAPI(views.APIView):
 
     def get(self, request):
         tasks = Task.objects.all()
-        task_serializer = TaskSerializer(tasks, many=True)
+        task_serializer = TaskGetSerializer(tasks, many=True)
         return Response(task_serializer.data)
+
+    def post(self, request):
+        serializer = TaskPutSerializer(data=request.data)
+        if serializer.is_valid():
+            task = serializer.save()
+            return_serializer = TaskGetSerializer(task)
+            return Response(return_serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 
@@ -31,7 +39,7 @@ class TaskAPI(views.APIView):
             task = Task.objects.get(id=id)
         except Task.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
-        serializer = TaskSerializer(task)
+        serializer = TaskGetSerializer(task)
         return Response(serializer.data)
 
 
@@ -42,10 +50,11 @@ class TaskAPI(views.APIView):
             return Response(status=status.HTTP_404_NOT_FOUND)
         if not request.user.is_superuser and request.user.id != id:
             return Response(status=status.HTTP_403_FORBIDDEN)
-        serializer = TaskSerializer(task, data=request.data)
+        serializer = TaskPutSerializer(task, data=request.data)
         if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
+            task = serializer.save()
+            return_serializer = TaskGetSerializer(task)
+            return Response(return_serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, id):
