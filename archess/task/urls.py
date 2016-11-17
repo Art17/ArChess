@@ -6,8 +6,9 @@ from django.views.decorators.csrf import csrf_exempt
 
 urlpatterns = [
     url(r'^create-task/$', views.CreateTaskView.as_view()),
-    url(r'^task/(\d+)', views.get_task),
+    url(r'^tasks/(\d+)', views.get_task),
+    url(r'^tasks/$', views.TasksView.as_view()),
 
     url(r'^api/tasks/$', rest_views.TasksAPI.as_view()),
-    url(r'^api/tasks/(\d+)$', rest_views.TaskAPI.as_view())
+    url(r'^api/tasks/(\d+)$', rest_views.TaskAPI.as_view()),
 ]

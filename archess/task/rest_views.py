@@ -15,7 +15,11 @@ class TasksAPI(views.APIView):
     permission_classes = (permissions.IsAuthenticated,)
 
     def get(self, request):
-        tasks = Task.objects.all()
+        name = request.GET.get('name')
+        if name != '':
+            tasks = Task.objects.filter(author__username__startswith=name)
+        else:
+            tasks = Task.objects.all()
         task_serializer = TaskGetSerializer(tasks, many=True)
         return Response(task_serializer.data)
 

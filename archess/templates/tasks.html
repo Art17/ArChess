@@ -1,0 +1,51 @@
+{% extends 'base_nav.html' %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+{% block scripts %}
+    <script src="{% static 'js/mustache.min.js' %}"></script>
+    <script src="{% static 'js/pagination.min.js' %}"></script>
+    <script id="table_template" type="text/mustache" >
+    {% verbatim %}
+    <table class="table-hover table">
+        <tr>
+            <th>Author</th>
+            <th>Title</th>
+            <th>Difficulty</th>
+            <th>Question</th>
+        </tr>
+        {{#tasks}}
+            <tr class="clickable-row" data-href="/tasks/{{ id }}/">
+                <td>{{ author.username }}</td>
+                <td>{{ title }}</td>
+                <td>{{ difficulty }}</td>
+                <td>{{ question }}</td>
+            </tr>
+         {{/tasks}}
+        </table>
+    {% endverbatim %}
+    </script>
+    <script src="{% static 'js/search.js' %}"></script>
+{% endblock %}
+
+
+{% block content %}
+    <div class="row">
+    <div class="col-sm-3">
+        <form role="form" method="get">
+        {% bootstrap_form form %}
+        {% buttons %}
+            <button type="submit" class="btn btn-primary" id="id_search_btn">
+              {% bootstrap_icon "star" %} Search
+            </button>
+        {% endbuttons %}
+        </form>
+    </div>
+    </div>
+    <div id="template_div">
+
+    </div>
+
+    <div class="paginationjs" id="pagination"></div>
+    <script src="{% static 'js/click_row.js' %}"></script>
+{% endblock %}

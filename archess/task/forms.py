@@ -13,3 +13,7 @@ class TaskCreationForm(forms.ModelForm):
         model = Task
         fields = ['title', 'start_pos', 'question', 'difficulty']
         readonly_fields = ['start_pos']
+
+
+class TaskSearchForm(forms.Form):
+    author = forms.CharField(max_length=20)

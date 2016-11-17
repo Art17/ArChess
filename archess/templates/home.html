@@ -3,6 +3,61 @@
 {% block title %}
     Home page
 {% endblock %}
-
 {% block content %}
-{% endblock content %}
+    <div class="container">
+        <div class="row voffset2">
+              <div class = "col-xs-6 col-sm-3" style = "background-color: #dedef8;
+                 box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+                  <h4><a href="http://localhost:5000">ArChess.com</a></h4>
+                  <p>Current players: 12000</p>
+                  <p>Current games: 3000</p>
+                   </div>
+
+            <div class="col-sm-6">
+                <table class = "table">
+                   <caption>Current games</caption>
+
+                   <thead>
+                      <tr>
+                         <th>Player</th>
+                         <th>Rank</th>
+                          <th>Time</th>
+                          <th>Mode</th>
+                      </tr>
+                   </thead>
+
+                   <tbody>
+                      <tr>
+                         <td>John</td>
+                         <td>12.0</td>
+                          <td>20+5</td>
+                          <td>Regular</td>
+                      </tr>
+
+                      <tr>
+                         <td>John</td>
+                         <td>12.0</td>
+                          <td>20+5</td>
+                          <td>Regular</td>
+                      </tr>
+
+                      <tr>
+                         <td>John</td>
+                         <td>12.0</td>
+                          <td>20+5</td>
+                          <td>Regular</td>
+                      </tr>
+                   </tbody>
+
+                </table>
+            </div>
+            <div class = "btn-group-vertical col-sm-3">
+                <h3>Chess</h3>
+               <button type = "button" class = "btn btn-default" onclick="location.href='create-game/';">Create game</button>
+               <button type = "button" class = "btn btn-default" onclick="location.href='play-with-friend/';">Play with a friend</button>
+                <button type = "button" class = "btn btn-default" onclick="location.href='play-here/';">Play here</button>
+                <button type = "button" class = "btn btn-default" onclick="location.href='play-with-computer/';">Play with computer</button>
+            </div>
+        </div>
+    </div>
+{% endblock %}
