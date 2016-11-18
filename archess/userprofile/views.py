@@ -1,19 +1,22 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from django.utils.decorators import method_decorator
 from django.views import View
 from django.contrib.auth.models import User
 
 from userprofile.forms import ProfileForm
 
-
+@method_decorator(login_required(login_url='/login/'), name='dispatch')
 class ProfileView(View):
     def get(self, request, username):
         args = dict()
-        args['user'] = User.objects.get(username=username)
-        args['current_user'] = request.user
+        args['watched_user'] = User.objects.get(username=username)
+        args['user'] = request.user
         return render(request, 'user_profile.html', args)
 
 
+@method_decorator(login_required(login_url='/login/'), name='dispatch')
 class EditProfileView(View):
     def get(self, request):
         dir_form = ProfileForm()

@@ -7,6 +7,7 @@ from .forms import TaskCreationForm, TaskSearchForm
 from .models import Task
 
 
+@method_decorator(login_required(login_url='/login/'), name='dispatch')
 class CreateTaskView(View):
     def get(self, request):
         task_form = TaskCreationForm()
@@ -33,7 +34,7 @@ class TasksView(View):
         return render(request, 'tasks.html', args)
 
 
-
+@login_required(login_url='/login/')
 def get_task(request, id):
     if request.method == 'GET':
         task = Task.objects.get(id=id)

@@ -11,6 +11,7 @@ class TaskGetSerializer(serializers.ModelSerializer):
 
 
 class TaskPutSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Task
         fields = ('title', 'start_pos', 'question', 'difficulty')

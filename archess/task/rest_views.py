@@ -14,9 +14,10 @@ from task.serializers import TaskPutSerializer, TaskGetSerializer
 class TasksAPI(views.APIView):
     permission_classes = (permissions.IsAuthenticated,)
 
+
     def get(self, request):
         name = request.GET.get('name')
-        if name != '':
+        if name is not None and name != '':
             tasks = Task.objects.filter(author__username__startswith=name)
         else:
             tasks = Task.objects.all()
@@ -33,7 +34,6 @@ class TasksAPI(views.APIView):
 
 
 
-@method_decorator(csrf_exempt, name='dispatch')
 @method_decorator(api_view(['GET', 'PUT', 'DELETE']), name='dispatch')
 class TaskAPI(views.APIView):
     permission_classes = (permissions.IsAuthenticated,)

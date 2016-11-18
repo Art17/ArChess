@@ -4,6 +4,19 @@
     <div class="row">
         <ul class = "nav nav-tabs">
            <li><a href = "/">Home</a></li>
+            <li class = "dropdown">
+            <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">
+               Chess
+               <b class = "caret"></b>
+            </a>
+
+            <ul class = "dropdown-menu">
+               <li><a href = "/play-with-computer/">Play with computer</a></li>
+                <li><a href = "/play-here/">Play here</a></li>
+                <li><a href = "/create-game/">Create game</a></li>
+                <li><a href = "/play-with-friend/">Play with a friend</a></li>
+            </ul>
+         </li>
             {% if user.is_authenticated %}
          <li class = "dropdown">
             <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">
@@ -29,22 +42,8 @@
                 <li><a href = "/tasks/">View tasks</a></li>
             </ul>
          </li>
-                <li class = "dropdown">
-            <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">
-               Chess
-               <b class = "caret"></b>
-            </a>
-
-            <ul class = "dropdown-menu">
-               <li><a href = "/play-with-computer/">Play with computer</a></li>
-                <li><a href = "/play-here/">Play here</a></li>
-                <li><a href = "/create-game/">Create game</a></li>
-                <li><a href = "/play-with-friend/">Play with a friend</a></li>
-            </ul>
-         </li>
                 {% if user.is_superuser %}
                     <li><a href = "/admin/">Django admin</a></li>
-                    <li><a href = "/myadmin/">My admin</a></li>
                 {% endif %}
             {% else %}
                 <li><a href = "/signup/">Sign up</a></li>

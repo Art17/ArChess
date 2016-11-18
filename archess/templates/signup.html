@@ -6,6 +6,9 @@
 {% endblock title %}
 
 {% block content %}
+    {% if user.is_authenticated %}
+    <h4>You are already logged in</h4>
+    {% else %}
     <div class="container col-sm-3 col-sm-offset-4">
         <form method="post" role="form">
         {% csrf_token %}
@@ -17,4 +20,5 @@
         {% endbuttons %}
         </form>
     </div>
+    {% endif %}
 {% endblock %}
