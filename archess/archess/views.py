@@ -15,6 +15,11 @@ def logout_view(request):
     return HttpResponseRedirect('/')
 
 
+def play_chess(request):
+    args = dict()
+    args['path'] = request.path
+    return render(request, 'play_chess.html', args)
+
 class LoginView(View):
     def get(self, request):
         args = dict()

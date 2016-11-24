@@ -8,6 +8,19 @@ function addScripts() {
     window.document.location = $(this).data("href");
     return true;
     });
+
+    boards = document.getElementsByClassName("chessboard");
+    console.log('hello'+boards.length)
+    for (var i = 0; i < boards.length; i++) {
+        console.log(boards[i].getAttribute('id'));
+        console.log('hello')
+            var board = ChessBoard(boards[i].getAttribute('id'), {
+                position: boards[i].getAttribute('data-start_pos'),
+              draggable: false,
+              sparePieces: false,
+            });
+        console.log('here')
+    }
 }
 
 function instantSearch() {

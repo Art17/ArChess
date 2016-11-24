@@ -1,0 +1,31 @@
+{% extends 'base_chess.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    Play chess
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/chess/play_here.js' %}"></script>
+    <script src="{% static 'js/chess/play_with_computer.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div align="center">
+    <div id="board" style="width: 400px"></div>
+    <p>Status: <span id="status"></span></p>
+    <p>PGN: <span id="pgn"></span></p>
+    <input class = "btn btn-primary" type="button" id="flipOrientationBtn" value="Flip orientation" />
+    <input class = "btn btn-primary" type="button" id="whiteOrientationBtn" value="White orientation" />
+    <input class = "btn btn-primary" type="button" id="blackOrientationBtn" value="Black orientation" />
+        </div>
+
+    <script>
+        {% if path == '/play-here/' %}
+            $(document).ready(init_play_here);
+        {% elif path == '/play-with-computer/' %}
+            $(document).ready(init_play_with_computer);
+        {% endif %}
+
+    </script>
+{% endblock %}

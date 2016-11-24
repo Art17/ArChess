@@ -29,6 +29,9 @@ urlpatterns = [
     url(r'^signup/$', views.SignupView.as_view()),
     url(r'^logout/$', views.logout_view),
 
+    url(r'^play-with-computer/$', views.play_chess),
+    url(r'^play-here/$', views.play_chess),
+
     url(r'^api/users/$', rest_views.UsersAPI.as_view()),
     url(r'^api/users/(\d+)/$', rest_views.UserAPI.as_view()),
 

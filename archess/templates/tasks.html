@@ -1,4 +1,4 @@
-{% extends 'base_nav.html' %}
+{% extends 'base_chess.html' %}
 {% load staticfiles %}
 {% load bootstrap3 %}
 
@@ -13,6 +13,7 @@
             <th>Title</th>
             <th>Difficulty</th>
             <th>Question</th>
+            <th>Preview</th>
         </tr>
         {{#tasks}}
             <tr class="clickable-row" data-href="/tasks/{{ id }}/">
@@ -20,6 +21,7 @@
                 <td>{{ title }}</td>
                 <td>{{ difficulty }}</td>
                 <td>{{ question }}</td>
+                <td><div align="right" class="chessboard" id="board{{id}}" style="width: 150px" data-start_pos={{ start_pos }}></div></td>
             </tr>
          {{/tasks}}
         </table>
