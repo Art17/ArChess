@@ -20,7 +20,9 @@ var makeRandomMove = function() {
   var possibleMoves = game.moves();
 
   // game over
-  if (possibleMoves.length === 0) return;
+  if (possibleMoves.length === 0) {
+    alert('Congratulations!')
+  }
 
   var randomIndex = Math.floor(Math.random() * possibleMoves.length);
   game.move(possibleMoves[randomIndex]);
