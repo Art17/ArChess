@@ -1,15 +1,8 @@
 {% extends 'base_nav.html' %}
-{% load staticfiles %}
-
 
 {% block title %}
     Home page
 {% endblock %}
-
-{% block scripts %}
-    <script src="{% static 'js/click_row.js' %}"></script>
-{% endblock %}
-
 {% block content %}
     <div class="container">
         <div class="row voffset2">
@@ -20,7 +13,7 @@
                    </div>
 
             <div class="col-sm-6">
-                <table class="table-hover table" >
+                <table class = "table">
                    <caption>Current games</caption>
 
                    <thead>
@@ -31,13 +24,8 @@
                           <th>Mode</th>
                       </tr>
                    </thead>
+
                    <tbody>
-                   {% for game in games %}
-                       <tr class="clickable-row" data-href="/games/{{ game.id }}/">
-                        <td>{{ game.author.username }}</td>
-                        <td>{{ game.author.statistics.rating }}</td>
-                       </tr>
-                    {% endfor %}
                    </tbody>
 
                 </table>

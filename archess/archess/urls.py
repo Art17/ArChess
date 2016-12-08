@@ -37,7 +37,6 @@ urlpatterns = [
 
     url(r'^', include('userprofile.urls')),
     url(r'^', include('task.urls')),
-    url(r'^', include('chessgame.urls')),
 ]
 
 if settings.DEBUG:

@@ -4,14 +4,10 @@ from django.views import View
 from django.contrib import auth
 from django.contrib.auth import login, logout
 from django.http import HttpResponseRedirect
-from chessgame.models import ChessGame
 
 
 def home(request):
-    games = ChessGame.objects.all()
-    args = dict()
-    args['games'] = games
-    return render(request, 'home.html', args)
+    return render(request, 'home.html')
 
 
 def logout_view(request):
