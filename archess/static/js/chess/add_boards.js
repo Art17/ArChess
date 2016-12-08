@@ -17,7 +17,7 @@ var addBoards = function() {
         onChange: function() {
             console.log('drop');
             console.log(board.position());
-            $start_pos.val(board.fen())
+            $start_pos.val(board.fen()).trigger('input')
         }
     });
 

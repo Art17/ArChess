@@ -29,13 +29,6 @@
                 <p>Last name: Not specified</p>
             {% endif %}
         </div>
-        <div class = "col-sm-2">
-            <h4>Statistics</h4>
-            <p>rating: {{ watched_user.statistics.rating }}</p>
-            <p>games won: {{ watched_user.statistics.games_won }}</p>
-            <p>games_lost: {{ watched_user.statistics.games_lost }}</p>
-            <p>games_drawn: {{ watched_user.statistics.games_drawn }}</p>
-        </div>
     </div>
     {% if watched_user == user %}
         <button type = "button" class = "btn btn-default" onclick="location.href='/profile/edit';">Change information about yourself</button>
