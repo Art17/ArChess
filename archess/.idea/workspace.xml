@@ -24,6 +24,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="task.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/js/task.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base_nav.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/base_nav.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-464">
+              <caret line="14" column="62" selection-start-line="14" selection-start-column="62" selection-end-line="14" selection-end-column="62" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/archess/settings.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -90,11 +110,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="task.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="task.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/task.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="326">
-              <caret line="16" column="86" selection-start-line="16" selection-start-column="86" selection-end-line="16" selection-end-column="102" />
+              <caret line="16" column="64" selection-start-line="16" selection-start-column="64" selection-end-line="16" selection-end-column="64" />
               <folding />
             </state>
           </provider>
@@ -105,26 +125,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="154">
               <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="wsgi.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/archess/wsgi.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="search.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/search.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="17" column="64" selection-start-line="17" selection-start-column="64" selection-end-line="17" selection-end-column="64" />
               <folding />
             </state>
           </provider>
@@ -178,7 +178,6 @@
         <option value="$PROJECT_DIR$/static/js/chess/add_boards.js" />
         <option value="$PROJECT_DIR$/static/js/chess/play_here.js" />
         <option value="$PROJECT_DIR$/static/js/chess/play_with_computer.js" />
-        <option value="$PROJECT_DIR$/static/js/task.js" />
         <option value="$PROJECT_DIR$/static/bootstrap/mycss/main.css" />
         <option value="$PROJECT_DIR$/static/mycss/main.css" />
         <option value="$PROJECT_DIR$/templates/base.html" />
@@ -188,6 +187,7 @@
         <option value="$PROJECT_DIR$/task/rest_views.py" />
         <option value="$PROJECT_DIR$/task/serializers.py" />
         <option value="$PROJECT_DIR$/templates/task.html" />
+        <option value="$PROJECT_DIR$/static/js/task.js" />
       </list>
     </option>
   </component>
@@ -555,7 +555,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -775,13 +775,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base_nav.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-400">
-          <caret line="14" column="62" selection-start-line="14" selection-start-column="62" selection-end-line="14" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/base_chess.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -811,14 +804,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/mycss/main.css" />
-    <entry file="file://$PROJECT_DIR$/static/js/task.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="924">
-          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
@@ -960,7 +945,23 @@
     <entry file="file://$PROJECT_DIR$/templates/task.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="326">
-          <caret line="16" column="86" selection-start-line="16" selection-start-column="86" selection-end-line="16" selection-end-column="102" />
+          <caret line="16" column="64" selection-start-line="16" selection-start-column="64" selection-end-line="16" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/task.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base_nav.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-464">
+          <caret line="14" column="62" selection-start-line="14" selection-start-column="62" selection-end-line="14" selection-end-column="62" />
           <folding />
         </state>
       </provider>

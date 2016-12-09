@@ -4,7 +4,6 @@ var init_play_with_computer = function() {
 
 var board,
   game = new Chess(fen_str + ' w KQkq - 0 1');
-    console.log(fen_str + ' w KQkq - 0 1')
 
 var onDragStart = function(source, piece, position, orientation) {
   if (game.in_checkmate() === true || game.in_draw() === true ||
@@ -17,7 +16,12 @@ var makeRandomMove = function() {
   var possibleMoves = game.moves();
 
   if (possibleMoves.length === 0) {
-    alert('Congratulations!')
+    if(game.in_checkmate()) {
+      alert('Congratulations you solved this task')
+    }
+    else if(game.in_draw()) {
+      alert('Game ended in a draw.Try again')
+    }
   }
 
   var randomIndex = Math.floor(Math.random() * possibleMoves.length);
@@ -52,9 +56,13 @@ var cfg = {
   onDrop: onDrop,
   onSnapEnd: onSnapEnd
 };
-console.log('board')
+
 board = ChessBoard('board', cfg);
 //--- end example JS ---
 $('#flipOrientationBtn').on('click', board.flip);
+  $('#againBtn').on('click', function() {
+    board.position(fen_str)
+    game = new Chess(fen_str + ' w KQkq - 0 1');
+  })
 }; // end init()
 $(document).ready(init_play_with_computer);
