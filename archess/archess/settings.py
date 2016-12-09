@@ -81,12 +81,12 @@ WSGI_APPLICATION = 'archess.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'archess',
-        'USER': 'artem',
-        'PASSWORD': 'A',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        # 'ENGINE': 'django.db.backends.postgresql',
+        # 'NAME': 'archess',
+        # 'USER': 'artem',
+        # 'PASSWORD': 'A',
+        # 'HOST': '127.0.0.1',
+        # 'PORT': '5432',
     }
 }
 
