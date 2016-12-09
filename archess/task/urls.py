@@ -9,6 +9,6 @@ urlpatterns = [
     url(r'^tasks/(\d+)', views.get_task),
     url(r'^tasks/$', views.TasksView.as_view()),
 
-    url(r'^api/tasks/$', rest_views.TasksAPI.as_view()),
+    url(r'^api/tasks/$', rest_views.TaskList.as_view()),
     url(r'^api/tasks/(\d+)$', rest_views.TaskAPI.as_view()),
 ]

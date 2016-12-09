@@ -5,15 +5,33 @@ from rest_framework import views
 from rest_framework import permissions
 from rest_framework.response import Response
 from rest_framework import status
-
+from archess.serializers import UserShortSerializer
+from rest_framework import generics
+from django.contrib.auth.models import User
 
 from task.models import Task
 from task.serializers import TaskPutSerializer, TaskGetSerializer
 
 
-class TasksAPI(views.APIView):
+class TaskList(generics.ListCreateAPIView):
+    queryset = Task.objects.all()
     permission_classes = (permissions.IsAuthenticated,)
 
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
+
+    def perform_update(self, serializer):
+        serializer.save(author=self.request.user)
+
+    def get_serializer_class(self):
+        if self.request.method == 'GET':
+            return TaskGetSerializer
+        else:
+            return TaskPutSerializer
+
+
+class TasksAPI(views.APIView):
+    permission_classes = (permissions.IsAuthenticated,)
 
     def get(self, request):
         name = request.GET.get('name')
