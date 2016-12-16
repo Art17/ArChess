@@ -22,6 +22,13 @@ class TaskList(generics.ListCreateAPIView):
 
     def perform_update(self, serializer):
         serializer.save(author=self.request.user)
+		
+    def get_queryset(self):
+        if 'name' in self.request.GET:
+            tasks = Task.objects.filter(author__username__startswith=self.request.GET['name'])
+        else:
+            tasks = Task.objects.all()
+        return tasks
 
     def get_serializer_class(self):
         if self.request.method == 'GET':
